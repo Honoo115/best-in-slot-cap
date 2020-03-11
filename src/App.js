@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import Main from './mainPage/mainPage'
+import Character from './charPage/charPage'
+import CreateCharacter from './charForm/charForm'
+import AssignSlot from './slotForm/slotForm'
+// import { Link } from "react-router-dom";
+// import config from "./config";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { characters: [], classes: [], slots: [], hasError: false };
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  render() {
+    return (
+      <div>
+        <Router>
+          <Route exact path={"/"}>
+            <div> <Main
+              chars={this.state.characters}
+              class={this.state.classes}
+            />
+            </div>
+
+          </Route>
+          <Route exact path={"/character"} >
+            <Character />
+          </Route>
+          <Route exact path={"/charcreation"} >
+            <CreateCharacter />
+          </Route>
+          <Route exact path={"/additem"}>
+            <AssignSlot />
+          </Route>
+        </Router>
+      </div>
+    )
+  }
 }
+
+
+
+
+
 
 export default App;
