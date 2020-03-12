@@ -6,17 +6,8 @@ function Character() {
         <section>
             <h1>RUGNARD | SHAMAN</h1>
             <div>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
-            <Link>Slot</Link>
+                <Link to='/additem'>Slot</Link>
+
             </div>
         </section>
     )

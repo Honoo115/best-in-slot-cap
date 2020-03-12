@@ -14,7 +14,7 @@ function Main() {
                 </ul>
             </div>
             <div>
-                <button>CREATE A CHARACTER</button>
+                <Link to="/charcreation">CREATE A CHARACTER</Link>
             </div>
         </section>
     )
