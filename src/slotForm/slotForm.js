@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 
 class AssignSlot extends Component {
     constructor(props) {
@@ -26,6 +26,7 @@ class AssignSlot extends Component {
             </button>
                     </div>
                 </form>
+                <Link to='/'>Go Back</Link>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { withRouter } from "react-router";
 // import config from "../config";
-
+import { Link } from "react-router-dom";
 class CreateCharacter extends Component {
     constructor(props) {
         super(props)
@@ -34,6 +34,7 @@ class CreateCharacter extends Component {
                 </button>
                     </div>
                 </form>
+                <Link to='/'>Go Back</Link>
             </div>
         );
     }
