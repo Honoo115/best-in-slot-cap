@@ -1,0 +1,13 @@
+.slotsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: #CCC;
+    display: flex;
+  }
+  
+  .slot {
+    margin: 1rem;
+    padding: 1rem;
+    background: #AAA;
+  }
