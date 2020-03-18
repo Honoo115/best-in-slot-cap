@@ -25,6 +25,30 @@ class App extends Component {
         })
       });
   }
+handleDelete(event) {
+event.preventDefault();
+const url = `${config.API_ENDPOINT}/character/${char_id}`
+const options = {
+  method: "DELETE",
+  body: JSON.stringify(collection),
+  headers: {
+    "Content-Type": "application/json"
+  }
+}
+.fetch(url, options)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("Seems the spell didn't come out, try casting again later.")
+  }
+  
+  })
+
+
+
+}
+
+
+
 
   componentDidMount() {
     this.getCharacters();

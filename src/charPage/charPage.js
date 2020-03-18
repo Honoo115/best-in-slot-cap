@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./charPage.css"
 
 function CharPage(props) {
+    
 
     let slots =  props.character.slots.map((slot => {
         return (
