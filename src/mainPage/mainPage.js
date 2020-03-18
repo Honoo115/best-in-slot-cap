@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-function Main(props) {
+function MainPage(props) {
     const Characters = props.character.map(function (character) {
         return (
             <div key={character.id}>
@@ -20,4 +20,4 @@ function Main(props) {
 
     );
 }
-export default Main;
+export default MainPage;

@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from "../config";
 
-class AssignSlot extends Component {
+class SlotForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
             slot_name: { value: "" },
         }
     }
+
     // USE SLOT.ID NOT SLOT_ID
     handleSubmit(event) {
         event.preventDefault();
@@ -16,8 +17,7 @@ class AssignSlot extends Component {
         const bank = {
             slot_name: this.state.slot_name.value
         }
-        console.log(bank);
-        const url = `${config.API_ENDPOINT}/${this.props.slot.char_id}/slots/${idToPatch}` // :character_id
+        const url = `${config.API_ENDPOINT}/${this.props.slot.char_id}/slots/${idToPatch}`;
         const options = {
             method: "PATCH",
             body: JSON.stringify(bank),
@@ -25,11 +25,14 @@ class AssignSlot extends Component {
                 "Content-Type": "application/json"
             }
         };
+
         fetch(url, options)
             .then(res => {
                 if (!res.ok) {
                     throw new Error(" Spell Failed. Try casting again.")
                 }
+                this.props.getCharacters();
+                this.props.history.goBack();
                 return res.json();
             })
             .catch(err => {
@@ -39,6 +42,7 @@ class AssignSlot extends Component {
             })
     }
     componentDidMount() {
+
         this.setState({
             slots: this.props.character.slots[this.props.slot_id]
         })
@@ -51,7 +55,7 @@ class AssignSlot extends Component {
             <div>
                 <h2>What item is it?</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                    <label for="slot-name-input">Name</label>
+                    Name
                     <input
                         type="text"
                         id="slot-name-input"
@@ -64,17 +68,17 @@ class AssignSlot extends Component {
             </button>
                     </div>
                 </form>
-                <Link to='/character'>Go Back</Link>
+                <Link to={'/'}>Go Back</Link>
             </div>
         )
     }
 }
 
-AssignSlot.defaultProps = {
+SlotForm.defaultProps = {
     character: {
         slots: []
     },
     slot: { slot: { id: NaN } }
 };
 
-export default AssignSlot;
+export default SlotForm;

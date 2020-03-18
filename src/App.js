@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Main from './mainPage/mainPage'
-import Character from './charPage/charPage'
-import CreateCharacter from './charForm/charForm'
-import AssignSlot from './slotForm/slotForm'
+import MainPage from './mainPage/mainPage'
+import CharPage from './charPage/charPage'
+import CharForm from './charForm/charForm'
+import SlotForm from './slotForm/slotForm'
 import config from "./config";
 
 class App extends Component {
@@ -11,7 +11,8 @@ class App extends Component {
   static getDerivedStateFromError(error) {
     return { hasError: true };
   }
-  componentDidMount() {
+
+  getCharacters = () => {
     fetch(`${config.API_ENDPOINT}/character`)
       .then(characters => {
         return characters.json()
@@ -24,12 +25,17 @@ class App extends Component {
         })
       });
   }
+
+  componentDidMount() {
+    this.getCharacters();
+  }
+
   render() {
     return (
       <div>
         <Router>
           <Route exact path={"/"}>
-            <div> <Main
+            <div> <MainPage
               character={this.state.characters}
 
             />
@@ -47,17 +53,36 @@ class App extends Component {
               })[0]
 
               return (
-                <Character
+                <CharPage
                   character={character}
+                  history={routeProps.history}
 
                 />
               )
             }}
           >
           </Route>
-          <Route exact path={"/charcreation"} >
-            <CreateCharacter />
-          </Route>
+          <Route exact path={"/charcreation"}
+            render={(routeProps) => {
+              let character_id = routeProps.match.params.character_id;
+              let character = this.state.characters.filter(character => {
+                let id = character.id
+                return (
+                  id.toString() === character_id
+                )
+              })[0]
+
+              return (
+                <CharForm
+                  character={character}
+                  history={routeProps.history}
+                  getCharacters={this.getCharacters}
+                />
+              )
+            }}
+          />
+
+
           <Route exact path={"/character/:character_id/slots/:slot_id"}
             render={(routeProps) => {
               let character_id = routeProps.match.params.character_id;
@@ -72,8 +97,10 @@ class App extends Component {
                 slot = character.slots[routeProps.match.params.slot_id - 1]
               }
               return (
-                <AssignSlot
+                <SlotForm
+                  history={routeProps.history}
                   slot={slot}
+                  getCharacters={this.getCharacters}
                 />
               );
             }}

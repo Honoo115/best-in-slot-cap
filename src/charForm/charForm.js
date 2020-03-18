@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import config from "../config";
 import { Link } from "react-router-dom";
-class CreateCharacter extends Component {
+class CharForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -30,6 +30,8 @@ class CreateCharacter extends Component {
                 if (!res.ok) {
                     throw new Error("Seems the spell didn't come out, try casting again later.")
                 }
+                this.props.getCharacters();
+                this.props.history.goBack();
                 return res.json();
             })
             .catch(err => {
@@ -51,7 +53,7 @@ class CreateCharacter extends Component {
             <div>
                 <h2>Create your Character</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                    <label for="character-name-input">Name</label>
+                    Name
                     <input
                         type="text"
                         id="character-name-input"
@@ -59,7 +61,7 @@ class CreateCharacter extends Component {
 
                         required
                     ></input>
-                    <lable for="character-class-input">Class</lable>
+                    Class
                     <input
                         type="text"
                         id="class-name-input"
@@ -77,4 +79,4 @@ class CreateCharacter extends Component {
         );
     }
 }
-export default CreateCharacter;
+export default CharForm;
