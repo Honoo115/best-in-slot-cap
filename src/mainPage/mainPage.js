@@ -7,9 +7,11 @@ function MainPage(props) {
     const Characters = props.character.map(function (character) {
         return (
             <div key={character.id}>
+                 
                 <Link to={`character/${character.id}/slots`}>
                     {character.char_name} || {character.class_name}
                 </Link>
+                <button onClick={(e) => props.onDeleteCharacter(e, character.id)}>DELETE CHARACTER</button>
             </div>
         );
     });
