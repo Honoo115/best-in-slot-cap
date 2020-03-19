@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 import "./charPage.css"
 
 function CharPage(props) {
-    
 
-    let slots =  props.character.slots.map((slot => {
+
+    let slots = props.character.slots.map((slot => {
         return (
-            <div  key={`slot-${slot.id}`}  className="slot">
+            <div key={`slot-${slot.id}`} className="slot">
                 <Link to={`/character/${slot.char_id}/slots/${slot.slot_id}`}>
                     {slot.slot_id} {slot.slot_name}
                 </Link>
             </div>
         )
     }))
+        .sort((a, b) => {
+            return a.slot_id - b.slot_id;
+        });
     return (
         <section>
             <div>
