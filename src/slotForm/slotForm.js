@@ -67,7 +67,7 @@ class SlotForm extends Component {
             </button>
                     </div>
                 </form>
-                <Link path={`character/${char_id}/slots`}>Go Back</Link>
+                <Link to={`/character/${this.props.slot.char_id}/slots`}>Go Back</Link>
             </div>
         )
     }
