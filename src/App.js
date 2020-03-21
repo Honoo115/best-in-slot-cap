@@ -43,6 +43,15 @@ class App extends Component {
         }
 
       })
+      .then(() => {
+        this.setState({
+          characters: this.state.characters.filter(character => {
+            return (
+              character.id !== characterId
+            )
+          })
+        })
+      })
   }
 
 
@@ -59,8 +68,8 @@ class App extends Component {
         <Router>
           <Route exact path={"/"}>
             <div> <MainPage
-            
-              onDeleteCharacter={this.handleDelete}
+
+              onDeleteCharacter={this.handleDelete.bind(this)}
               character={this.state.characters}
               getCharacters={this.getCharacters}
             />

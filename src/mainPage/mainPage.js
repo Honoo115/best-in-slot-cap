@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 
 function MainPage(props) {
-    const Characters = props.character.map(function (character) {
+    const Character = props.character.map(function (character) {
         return (
-            <div key={character.id}>
+            <div key={`character-${character.id}`}>
                  
                 <Link to={`character/${character.id}/slots`}>
                     {character.char_name} || {character.class_name}
@@ -16,7 +16,10 @@ function MainPage(props) {
         );
     });
     return (<section>
-        <div className="mainpage">{Characters}</div>
+        <h3>Greetings Champion!</h3>
+        <p>Welcome to the Best-In-Slot-Manager. Here you can create your own personal checklist armory to keep track of your equipment.</p>
+        <p>Just Create one of your characters to get started!</p>
+        <div className="mainpage">{Character}</div>
         <div><Link to={'/charcreation'}>Create A Character</Link></div>
     </section>
 

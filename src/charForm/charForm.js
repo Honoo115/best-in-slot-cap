@@ -53,21 +53,25 @@ class CharForm extends Component {
             <div>
                 <h2>Create your Character</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                    Name
+                    <div>
+                        Name
                     <input
-                        type="text"
-                        id="character-name-input"
-                        onChange={e => this.updateName(e.target.value)}
+                            type="text"
+                            id="character-name-input"
+                            onChange={e => this.updateName(e.target.value)}
 
-                        required
-                    ></input>
-                    Class
+                            required
+                        ></input></div>
+                    <div>
+                        Class
                     <input
-                        type="text"
-                        id="class-name-input"
-                        onChange={e => this.updateClass(e.target.value)}
-                        required
-                    ></input>
+                            type="text"
+                            id="class-name-input"
+                            onChange={e => this.updateClass(e.target.value)}
+                            required
+                        ></input>
+                    </div>
+
                     <div>
                         <button className="buttons" type="submit">
                             Submit Character

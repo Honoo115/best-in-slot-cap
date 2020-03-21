@@ -53,9 +53,8 @@ class SlotForm extends Component {
     render() {
         return (
             <div>
-                <h2>What item is it?</h2>
+                <h2>Input the name of your gear.</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
-                    Name
                     <input
                         type="text"
                         id="slot-name-input"

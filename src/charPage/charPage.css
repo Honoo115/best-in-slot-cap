@@ -1,9 +1,21 @@
 .slotsWrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-areas: 
+    "s1 M M M s10"
+    "s2 M M M s11"
+    "s3 M M M s12"
+    "s4 M M M s13"
+    "s5 M M M s14"
+    "bla1 M M M s15"
+    "bla2 M M M s16"
+    "s6 M M M s17"
+    "bla3 s7 s8 s9 bla4";
+    column-gap: 10px;
+    row-gap: 10px;
+    height: 50hv;
+    border: solid 10px black;
     padding: 1rem;
     background: #CCC;
-    display: flex;
   }
   
   .slot {
@@ -11,3 +23,56 @@
     padding: 1rem;
     background: #AAA;
   }
+#slot0 {
+  grid-area: s1;
+}
+#slot1 {
+  grid-area: s2;
+}
+#slot2 {
+  grid-area: s3;
+}
+#slot3 {
+  grid-area: s4;
+}
+#slot4 {
+  grid-area: s5;
+}
+#slot5 {
+  grid-area: s6;
+}
+#slot6 {
+  grid-area: s7;
+}
+#slot7 {
+  grid-area: s8;
+}
+#slot8 {
+  grid-area: s9;
+}
+#slot9 {
+  grid-area: s10;
+}
+#slot10 {
+  grid-area: s11;
+}
+#slot11 {
+  grid-area: s12;
+}
+#slot12 {
+  grid-area: s13;
+}
+#slot13 {
+  grid-area: s14;
+}
+#slot14 {
+  grid-area: s15;
+}
+#slot15 {
+  grid-area: s16;
+}
+#slot16 {
+  grid-area: s17;
+}
+/* Well boss not sure what else to do at this rate. It looks amazing in terms of format. Just have to think of a way to make it look more ' interesting '. 
+If you have any ideas please let me know here. :)  I have realized that this does not look to good on mobile. Any suggestions? */
