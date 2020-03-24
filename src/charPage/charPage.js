@@ -8,7 +8,7 @@ function CharPage(props) {
     let slots = props.character.slots.map((slot, key) => {
         return (
             <div key={`slot-${slot.id}`} className="slot" id={"slot" + key}>
-                <Link to={`/character/${slot.char_id}/slots/${slot.slot_id}`}>
+                <Link className="slotlink" to={`/character/${slot.char_id}/slots/${slot.slot_id}`}>
                     {slot.slot_id} {slot.slot_name}
                 </Link>
             </div>
@@ -18,15 +18,15 @@ function CharPage(props) {
             return a.slot_id - b.slot_id;
         });
     return (
-        <section>
+        <section className="header">
             <div>
                 {props.character.char_name} || {props.character.class_name}
             </div>
-            <div><p>Welcome {props.character.char_name}. Pick a slot and assign a name to it to add it to your loadout.</p></div>
+            <div ><p>Welcome {props.character.class_name}. Click a slot number and add your equipment to your loadout.</p></div>
             <div className="slotsWrapper">
                 {slots}
             </div>
-            <Link to={'/'}>Go Back</Link>
+            <Link className="goback" to={'/'}>Go Back</Link>
         </section>
 
     )

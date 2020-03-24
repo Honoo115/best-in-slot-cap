@@ -13,15 +13,49 @@
     column-gap: 10px;
     row-gap: 10px;
     height: 50hv;
-    border: solid 10px black;
-    padding: 1rem;
-    background: #CCC;
+    align-items: center;
+    padding: 0 2rem 2rem 2rem;
+    background: #bfbfbf
   }
-  
-  .slot {
-    margin: 1rem;
+  .goback{
+    text-decoration: none;
+    border: 2px solid #999;
     padding: 1rem;
-    background: #AAA;
+    background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
+    border-radius: 0.25rem;
+    color: #FEFEFE;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+    font-family: 'PT Sans', sans-serif;
+    margin: 0.25rem 0;
+    width: 100%;
+  }
+.goback:hover{
+  color:yellow
+}
+  .slot {
+    text-align: center;
+    border: 2px solid #999;
+    padding: 1rem;
+    background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
+    border-radius: 0.25rem;
+    color: #FEFEFE;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+    font-family: 'PT Sans', sans-serif;
+    margin: 0.25rem 0;
+  }
+  .slotlink:link{
+    text-decoration: none;
+    color: black
+  }
+  .slotlink:visited{
+    color: #ffff00
+  }
+  .slotlink:hover{
+    color: white;
   }
 #slot0 {
   grid-area: s1;

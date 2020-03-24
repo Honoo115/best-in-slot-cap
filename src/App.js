@@ -5,6 +5,7 @@ import CharPage from './charPage/charPage'
 import CharForm from './charForm/charForm'
 import SlotForm from './slotForm/slotForm'
 import config from "./config";
+import "./App.css"
 
 class App extends Component {
   state = { characters: [], hasError: false, fetched: false };
@@ -63,85 +64,88 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>BEST IN SLOT MANAGER</h1>
-        <Router>
-          <Route exact path={"/"}>
-            <div> <MainPage
+      <div className="appwrapper">
+        <div className="wrapperkid">
+          <h1>BEST IN SLOT MANAGER</h1>
+          <Router>
+            <Route exact path={"/"}>
+              <div> <MainPage
 
-              onDeleteCharacter={this.handleDelete.bind(this)}
-              character={this.state.characters}
-              getCharacters={this.getCharacters}
+                onDeleteCharacter={this.handleDelete.bind(this)}
+                character={this.state.characters}
+                getCharacters={this.getCharacters}
+              />
+              </div>
+
+            </Route>
+            <Route exact path={"/character/:character_id/slots"}
+              render={(routeProps) => {
+                let character_id = routeProps.match.params.character_id;
+                let character = this.state.characters.filter(character => {
+                  let id = character.id
+                  return (
+                    id.toString() === character_id
+                  )
+                })[0]
+
+                return (
+                  <CharPage
+
+                    character={character}
+                    history={routeProps.history}
+
+                  />
+                )
+              }}
+            >
+            </Route>
+            <Route exact path={"/charcreation"}
+              render={(routeProps) => {
+                let character_id = routeProps.match.params.character_id;
+                let character = this.state.characters.filter(character => {
+                  let id = character.id
+                  return (
+                    id.toString() === character_id
+                  )
+                })[0]
+
+                return (
+                  <CharForm
+                    character={character}
+                    history={routeProps.history}
+                    getCharacters={this.getCharacters}
+                  />
+                )
+              }}
             />
-            </div>
 
-          </Route>
-          <Route exact path={"/character/:character_id/slots"}
-            render={(routeProps) => {
-              let character_id = routeProps.match.params.character_id;
-              let character = this.state.characters.filter(character => {
-                let id = character.id
+
+            <Route exact path={"/character/:character_id/slots/:slot_id"}
+              render={(routeProps) => {
+                let character_id = routeProps.match.params.character_id;
+                let character = this.state.characters.filter(character => {
+                  let id = character.id
+                  return (
+                    id.toString() === character_id
+                  )
+                })[0];
+                let slot = {};
+                if (this.state.fetched) {
+                  slot = character.slots[routeProps.match.params.slot_id - 1]
+                }
                 return (
-                  id.toString() === character_id
-                )
-              })[0]
-
-              return (
-                <CharPage
-
-                  character={character}
-                  history={routeProps.history}
-
-                />
-              )
-            }}
-          >
-          </Route>
-          <Route exact path={"/charcreation"}
-            render={(routeProps) => {
-              let character_id = routeProps.match.params.character_id;
-              let character = this.state.characters.filter(character => {
-                let id = character.id
-                return (
-                  id.toString() === character_id
-                )
-              })[0]
-
-              return (
-                <CharForm
-                  character={character}
-                  history={routeProps.history}
-                  getCharacters={this.getCharacters}
-                />
-              )
-            }}
-          />
-
-
-          <Route exact path={"/character/:character_id/slots/:slot_id"}
-            render={(routeProps) => {
-              let character_id = routeProps.match.params.character_id;
-              let character = this.state.characters.filter(character => {
-                let id = character.id
-                return (
-                  id.toString() === character_id
-                )
-              })[0];
-              let slot = {};
-              if (this.state.fetched) {
-                slot = character.slots[routeProps.match.params.slot_id - 1]
-              }
-              return (
-                <SlotForm
-                  history={routeProps.history}
-                  slot={slot}
-                  getCharacters={this.getCharacters}
-                />
-              );
-            }}
-          />
-        </Router>
-      </div >
+                  <SlotForm
+                    character={character}
+                    history={routeProps.history}
+                    slot={slot}
+                    getCharacters={this.getCharacters}
+                  />
+                );
+              }}
+            />
+          </Router>
+        </div >
+      </div>
     )
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from "../config";
-
+import "./slotForm.css"
 class SlotForm extends Component {
     constructor(props) {
         super(props)
@@ -27,6 +27,7 @@ class SlotForm extends Component {
         };
 
         fetch(url, options)
+
             .then(res => {
                 if (!res.ok) {
                     throw new Error(" Spell Failed. Try casting again.")
@@ -51,11 +52,16 @@ class SlotForm extends Component {
         this.setState({ slot_name: { value: slot_name } })
     }
     render() {
+        console.log(this.props.slot.slot_name)
         return (
             <div>
                 <h2>Input the name of your gear.</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <input
+                        defaultValue={this.props.slot.slot_name === ''
+                            ? ''
+                            : this.props.slot.slot_name
+                        }
                         type="text"
                         id="slot-name-input"
                         onChange={e => this.patchSlot(e.target.value)}
@@ -67,7 +73,12 @@ class SlotForm extends Component {
             </button>
                     </div>
                 </form>
-                <Link to={`/character/${this.props.slot.char_id}/slots`}>Go Back</Link>
+                <div className="gobackwrapper">
+                    <Link className="goback" to={`/character/${this.props.slot.char_id}/slots`}>
+                        Go Back
+                    </Link>
+                </div>
+
             </div>
         )
     }

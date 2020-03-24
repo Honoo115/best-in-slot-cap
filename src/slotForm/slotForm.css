@@ -1,0 +1,16 @@
+.goback{
+    text-decoration: none;
+    border: 2px solid #999;
+    background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
+    border-radius: 0.25rem;
+    color: #FEFEFE;
+    font-size: 25px;
+    margin-top: 50px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+.gobackwrapper{
+    margin-top: 50px;
+}
+h2{
+    color: white
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import config from "../config";
 import { Link } from "react-router-dom";
+import "./charForm.css"
 class CharForm extends Component {
     constructor(props) {
         super(props)
@@ -54,8 +55,9 @@ class CharForm extends Component {
                 <h2>Create your Character</h2>
                 <form onSubmit={e => this.handleSubmit(e)}>
                     <div>
-                        Name
-                    <input
+                        <div className="formtitle">Name</div>
+
+                        <input
                             type="text"
                             id="character-name-input"
                             onChange={e => this.updateName(e.target.value)}
@@ -63,8 +65,9 @@ class CharForm extends Component {
                             required
                         ></input></div>
                     <div>
-                        Class
-                    <input
+                        <div className="formtitle">Class</div>
+
+                        <input className="classinput"
                             type="text"
                             id="class-name-input"
                             onChange={e => this.updateClass(e.target.value)}
@@ -75,10 +78,13 @@ class CharForm extends Component {
                     <div>
                         <button className="buttons" type="submit">
                             Submit Character
+                            
                 </button>
+
                     </div>
                 </form>
-                <Link to='/'>Go Back</Link>
+                <div className="go"><Link  className="goback"to='/'>Go Back</Link></div>
+                
             </div>
         );
     }

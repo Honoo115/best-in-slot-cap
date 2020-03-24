@@ -1,0 +1,51 @@
+.header{
+    background-color: #bfbfbf
+}
+
+
+button {
+    text-decoration: none;
+    border: 2px solid #999;
+    background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
+    border-radius: 0.25rem;
+    color: #FEFEFE;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+button:hover{
+    color:yellow
+}
+.createbutton {
+    text-decoration: none;
+    border: 2px solid #999;
+    background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
+    border-radius: 0.25rem;
+    color: #FEFEFE;
+    font-size: 25px;
+    margin: 0.25rem 0;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+.createbutton:hover{
+    color: yellow;
+}
+h3{
+    font-size: 50px
+}
+.maintext{
+    margin: 1px;
+    font-size:30px;
+    font-style: italic
+}
+.character:link{
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+}
+.character:visited{
+    color:black
+}
+.character:hover{
+color:white
+}
