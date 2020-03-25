@@ -17,8 +17,8 @@ function MainPage(props) {
     });
     return (<section className="header">
         <h3>Greetings Champion!</h3>
-        <p className="maintext">Welcome to the Best-In-Slot-Manager. Here you can create your own personal checklist armory to keep track of your equipment.</p>
-        <p className="maintext">Just Create one of your characters to get started!</p>
+        <p className="maintext">Welcome to the Best-In-Slot-Manager. Here you can create your own personal checklist armory to keep track of your equipment.
+        Just Create one of your characters to get started!</p>
         <div className="mainpage">{Character}</div>
         <div><Link className="createbutton" to={'/charcreation'}>Create A Character</Link></div>
     </section>

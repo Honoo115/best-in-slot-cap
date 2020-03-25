@@ -17,3 +17,10 @@ h1 {
   background: #343434;
   padding: 0 2rem 2rem 2rem;
 }
+@media(max-width: 750px) {
+  .appwrapper{
+      width: 350px;
+      height: 650px;
+      background: #CCCCCC;
+  }
+}

@@ -17,7 +17,6 @@ class CharForm extends Component {
             char_name: this.state.char_name.value,
             class_name: this.state.class_name.value
         }
-        console.log(collection);
         const url = `${config.API_ENDPOINT}/character`
         const options = {
             method: "POST",

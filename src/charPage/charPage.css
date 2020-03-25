@@ -12,10 +12,18 @@
     "bla3 s7 s8 s9 bla4";
     column-gap: 10px;
     row-gap: 10px;
-    height: 50hv;
+    min-height: 50hv;
     align-items: center;
-    padding: 0 2rem 2rem 2rem;
-    background: #bfbfbf
+    box-sizing: border-box;
+    padding: 0 1rem 1rem 1rem;
+    background: #bfbfbf;
+
+  }
+  @media(max-width: 850px) {
+  .slotsWrapper{
+    background: #CCCCCC;
+
+  }
   }
   .goback{
     text-decoration: none;
@@ -37,7 +45,8 @@
   .slot {
     text-align: center;
     border: 2px solid #999;
-    padding: 1rem;
+    box-sizing: border-box;
+    padding: .5rem;
     background-image: radial-gradient(red 5%, #4c0302 92%, #330000 98%);
     border-radius: 0.25rem;
     color: #FEFEFE;

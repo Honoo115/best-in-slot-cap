@@ -52,7 +52,6 @@ class SlotForm extends Component {
         this.setState({ slot_name: { value: slot_name } })
     }
     render() {
-        console.log(this.props.slot.slot_name)
         return (
             <div>
                 <h2>Input the name of your gear.</h2>
