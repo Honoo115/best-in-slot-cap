@@ -2,5 +2,3 @@ export default {
     API_ENDPOINT: "https://glacial-reef-04312.herokuapp.com",
     API_KEY: process.env.REACT_APP_API_KEY,
 }
-
-https://glacial-reef-04312.herokuapp.com
