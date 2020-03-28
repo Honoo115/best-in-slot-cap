@@ -15,7 +15,6 @@ h1 {
   align-items: center;
   justify-content: center;
   background: #343434;
-  padding: 0 2rem 2rem 2rem;
 }
 @media(max-width: 750px) {
   .appwrapper{
